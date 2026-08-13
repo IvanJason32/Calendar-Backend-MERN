@@ -55,7 +55,7 @@ export const actualizarEvento = async (req, res) => {
     if (evento.user.toString() !== uid) {
       return res.status(401).json({
         ok: false,
-        msg: "No tienes permiso para eliminar el evento",
+        msg: "No tienes permisos para editar el evento",
       });
     }
 
@@ -99,7 +99,7 @@ export const eliminarEvento = async (req, res) => {
     if (evento.user.toString() !== uid) {
       return res.status(401).json({
         ok: false,
-        msg: "No tienes permiso para editar el evento",
+        msg: "No tienes permisos para eliminar el evento",
       });
     }
 

@@ -14,11 +14,7 @@ export const eventsRouter = Router();
 
 eventsRouter.use(validarJWT);
 
-eventsRouter.get(
-  "/",
-
-  getEventos,
-);
+eventsRouter.get("/", getEventos);
 
 eventsRouter.post(
   "/",
