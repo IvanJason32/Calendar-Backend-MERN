@@ -1,6 +1,6 @@
 # Backend Calendar MERN
 
-Este backend fue desarrollado con nodejs y express
+Este backend fue desarrollado con nodejs, express y mongo (mongoose como ODM)
 
 ## Development instructions
 
