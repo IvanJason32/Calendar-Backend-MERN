@@ -4,7 +4,7 @@ export const getEventos = async (req, res) => {
   try {
     const eventos = await Evento.find().populate("user", "_id name email");
 
-    res.status(200).json({
+    return res.status(200).json({
       ok: true,
       events: eventos,
     });

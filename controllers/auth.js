@@ -89,7 +89,7 @@ export const renovarToken = (req, res) => {
 
   const token = generateJWT(uid, name);
 
-  res.json({
+  return res.status(200).json({
     ok: true,
     token,
   });
