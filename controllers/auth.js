@@ -84,13 +84,29 @@ export const loginUsuario = async (req, res) => {
   }
 };
 
-export const renovarToken = (req, res) => {
+export const renovarToken = async (req, res) => {
   const { uid, name } = req;
 
-  const token = generateJWT(uid, name);
+  try {
+    const usuario = await Usuario.findById(uid);
+    const email = usuario.email;
 
-  return res.status(200).json({
-    ok: true,
-    token,
-  });
+    const token = generateJWT(uid, name);
+
+    return res.status(200).json({
+      ok: true,
+      user: {
+        uid,
+        name,
+        email
+      },
+      token,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      ok: false,
+      msg: "Ocurrio un error, contactar con el administrador",
+    });
+  }
 };
